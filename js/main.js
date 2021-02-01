@@ -1,38 +1,38 @@
 console.log('Starting up');
 
 $(document).ready(function () {
-      initPage();
+  initPage();
 })
 
 function initPage() {
-      renderProjects();
-      renderProjectsPopup()
+  renderProjects();
+  renderProjectsPopup()
 }
 
 function renderProjects() {
-      var projects = getProjects();
-      var htmls = projects.map(function (proj) {
-            return /* html */ `<div class="col-md-4 col-sm-6 portfolio-item">
+  var projects = getProjects();
+  var htmls = projects.map(function (proj) {
+    return /* html */ `<div class="col-md-4 col-sm-6 portfolio-item">
             <a class="portfolio-link" data-toggle="modal" href="#${proj.id}">
               <div class="portfolio-hover">
                 <div class="portfolio-hover-content">
                   <i class="fa fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid img-thumbnail" src="${proj.ImageUrl}" alt="">
+              <img class="img-fluid img-thumbnail rounded img-max" src="${proj.ImageUrl}" alt="">
             </a>
             <div class="portfolio-caption">
               <h4>${proj.name}</h4>
               <p class="text-muted">${proj.title}</p>
             </div>`
-      });
-      $('.projRender').html(htmls);
+  });
+  $('.projRender').html(htmls);
 }
 
 function renderProjectsPopup() {
-      var projects = getProjects();
-      var htmls = projects.map(function (proj) {
-            return /* html */ `  <div class="portfolio-modal modal fade" id="${proj.id}" tabindex="-1" role="dialog" aria-hidden="true">
+  var projects = getProjects();
+  var htmls = projects.map(function (proj) {
+    return /* html */ `  <div class="portfolio-modal modal fade" id="${proj.id}" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="close-modal" data-dismiss="modal">
@@ -65,16 +65,16 @@ function renderProjectsPopup() {
               </div>
             </div>
           </div>`
-      });
-      $('.project-wrapper').html(htmls);
+  });
+  $('.project-wrapper').html(htmls);
 }
 
 function onEmailSubmit(ev) {
-      ev.preventDefault();
-      var email = $('.email').val();
-      var subject = $('.subject').val();
-      var meassage = $('.meassage').val();
-      var url = `https://mail.google.com/mail/?view=cm&fs=1&to=ytav.peer@gmail.com&su=${subject}&body=email from ${email} body:${meassage}`
-      window.open(url);
+  ev.preventDefault();
+  var email = $('.email').val();
+  var subject = $('.subject').val();
+  var meassage = $('.meassage').val();
+  var url = `https://mail.google.com/mail/?view=cm&fs=1&to=ytav.peer@gmail.com&su=${subject}&body=email from ${email} body:${meassage}`
+  window.open(url);
 }
 
