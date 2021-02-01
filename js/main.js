@@ -50,12 +50,12 @@ function renderProjectsPopup() {
                         <img class="img-fluid d-block mx-auto" src="${proj.ImageUrl}" alt="">
                         <p>${proj.desc}</p>
                         <ul class="list-inline">
-                          <li>Date: ${proj.publishedAt}</li>
+                          <li>Date: ${new Date(proj.publishedAt).toDateString()}</li>
                           <li>Client: ${proj.name}</li>
                           <li>Category: ${proj.title}v</li>
                         </ul>
-                        <a class="btn btn-dark" href=" ${proj.ProjectUrl}">To the project</a>
-                        <button class="btn btn-primary" type="button">
+                        <a class="btn btn-dark" href=" ${proj.ProjectUrl}" target="_blank">To the project</a>
+                        <button class="btn btn-primary" data-dismiss="modal" type="button">
                           <i class="fa fa-times"></i>
                           Close Project</button>
                       </div>
@@ -77,3 +77,4 @@ function onEmailSubmit(ev) {
       var url = `https://mail.google.com/mail/?view=cm&fs=1&to=ytav.peer@gmail.com&su=${subject}&body=email from ${email} body:${meassage}`
       window.open(url);
 }
+
